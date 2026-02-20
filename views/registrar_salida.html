@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registrar Salida</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <h1>Registrar Salida</h1>
+
+  <form action="/operario/salida" method="POST">
+    <input type="text" name="placa" placeholder="Placa" required>
+    <input type="number" name="descuento" placeholder="Descuento (opcional)">
+    <label>
+      <input type="checkbox" name="cortesia"> Cortesía
+    </label>
+    <button type="submit" class="btn">Calcular y Confirmar</button>
+  </form>
+
+  <a href="/auth/logout" class="btn btn-danger">Cerrar sesión</a>
+  <script src="/js/whatsapp.js"></script>
+</body>
+</html>
