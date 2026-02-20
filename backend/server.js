@@ -13,18 +13,19 @@ app.use(session({
   saveUninitialized: false
 }));
 
-app.use(express.static(path.join(__dirname, '../public')));
-app.use(express.static(path.join(__dirname, '../views')));
+// Configurar motor de vistas
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '../views'));
 
+// Archivos estáticos (CSS y JS)
+app.use(express.static(path.join(__dirname, '../public')));
+
+// Rutas
 app.use('/auth', require('./routes/auth.routes'));
 app.use('/operario', require('./routes/operario.routes'));
 app.use('/admin', require('./routes/admin.routes'));
 
 const PORT = process.env.PORT || 3000;
-
-app.get("/", (req, res) => {
-  res.send("Sistema de Parqueadero funcionando correctamente 🚗");
-});
 
 app.listen(PORT, () => {
   console.log('Servidor corriendo en puerto', PORT);
