@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Gestión de Usuarios</title>
+<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<div class="container">
+<h2>Usuarios</h2>
+
+<form action="/admin/usuarios" method="POST">
+<input type="text" name="nombre" placeholder="Nombre" required>
+<input type="email" name="email" placeholder="Email" required>
+<input type="password" name="password" placeholder="Contraseña" required>
+<select name="rol_id">
+<option value="1">Administrador</option>
+<option value="2">Operario</option>
+</select>
+<button type="submit">Crear Usuario</button>
+</form>
+
+<a href="/dashboard-admin.html">Volver</a>
+
+</div>
+
+</body>
+</html>

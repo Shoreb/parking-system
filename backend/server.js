@@ -13,14 +13,16 @@ app.use(session({
   saveUninitialized: false
 }));
 
-// Configurar motor de vistas
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, '../views'));
-
-// Archivos estáticos (CSS y JS)
+// Servir HTML desde views
+app.use(express.static(path.join(__dirname, '../views')));
 app.use(express.static(path.join(__dirname, '../public')));
 
-// Rutas
+// Ruta raíz → login
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, '../views/login.html'));
+});
+
+// Rutas API
 app.use('/auth', require('./routes/auth.routes'));
 app.use('/operario', require('./routes/operario.routes'));
 app.use('/admin', require('./routes/admin.routes'));

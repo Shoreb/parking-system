@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Registrar Entrada</title>
-  <link rel="stylesheet" href="/css/styles.css">
+<meta charset="UTF-8">
+<title>Registrar Entrada</title>
+<link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-  <h1>Registrar Entrada</h1>
 
-  <form action="/operario/entrada" method="POST">
-    <input type="text" name="placa" placeholder="Placa" required>
+<div class="container">
+<h2>Registrar Entrada</h2>
 
-    <select name="tipo_vehiculo_id" required>
-      <option value="1">Sedán</option>
-      <option value="2">Camioneta</option>
-      <option value="3">Moto</option>
-    </select>
+<form action="/operario/entrada" method="POST">
+<input type="text" name="placa" placeholder="Placa" required>
+<select name="tipo_vehiculo_id" required>
+<option value="1">Auto</option>
+<option value="2">Moto</option>
+</select>
+<button type="submit">Registrar</button>
+</form>
 
-    <button type="submit" class="btn">Registrar</button>
-  </form>
+<a href="/dashboard-operario.html">Volver</a>
 
-  <a href="/auth/logout" class="btn btn-danger">Cerrar sesión</a>
-  <script src="/js/whatsapp.js"></script>
+</div>
+
 </body>
 </html>

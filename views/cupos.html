@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cupos Disponibles</title>
+<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<div class="container">
+<h2>Cupos Disponibles</h2>
+
+<div id="cupos"></div>
+
+<a href="/dashboard-admin.html">Volver</a>
+
+</div>
+
+<script>
+fetch('/admin/cupos')
+.then(res => res.json())
+.then(data => {
+document.getElementById('cupos').innerHTML = JSON.stringify(data);
+});
+</script>
+
+</body>
+</html>
