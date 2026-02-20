@@ -20,6 +20,8 @@ app.use('/auth', require('./routes/auth.routes'));
 app.use('/operario', require('./routes/operario.routes'));
 app.use('/admin', require('./routes/admin.routes'));
 
-// NO app.listen()
+const PORT = process.env.PORT || 3000;
 
-module.exports = app;
+app.listen(PORT, () => {
+  console.log('Servidor corriendo en puerto', PORT);
+});
