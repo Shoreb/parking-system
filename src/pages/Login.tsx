@@ -35,10 +35,9 @@ const Login: React.FC = () => {
           <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 mb-4">
             <Car className="h-10 w-10 text-white" />
           </div>
-          <h1 className="text-3xl font-bold text-white mb-1">ParqueApp</h1>
+          <h1 className="text-3xl font-bold text-white mb-1">Parqueadero App</h1>
           <p className="text-white/70 text-sm">Sistema de Control de Parqueadero</p>
           <div className="mt-2 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/20">
-            <span className="text-xs text-white/80 font-medium">SENA – Nodo TIC</span>
           </div>
         </div>
 
@@ -96,7 +95,7 @@ const Login: React.FC = () => {
               className="w-full btn-operativo gradient-primary text-white hover:opacity-90 active:scale-[0.98] flex items-center justify-center gap-2 shadow-md disabled:opacity-70"
             >
               {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : null}
-              {loading ? "Verificando..." : "Ingresar al Sistema"}
+              {loading ? "Verificando..." : "Ingresar"}
             </button>
           </form>
 
@@ -105,10 +104,6 @@ const Login: React.FC = () => {
           </p>
         </div>
 
-        {/* Footer */}
-        <p className="text-center text-white/50 text-xs mt-6">
-          © 2025 ParqueApp · SENA Desarrollo de Software
-        </p>
       </div>
 
       {/* WhatsApp flotante */}
