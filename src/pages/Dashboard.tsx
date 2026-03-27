@@ -64,15 +64,11 @@ const Dashboard: React.FC = () => {
     }
   };
 
-  useEffect(() => {
-    fetchData();
-    const channel = supabase
-      .channel("dashboard-realtime")
-      .on("postgres_changes", { event: "*", schema: "public", table: "espacios" }, fetchData)
-      .on("postgres_changes", { event: "*", schema: "public", table: "registros" }, fetchData)
-      .subscribe();
-    return () => { supabase.removeChannel(channel); };
-  }, []);
+ useEffect(() => {
+  fetchData();
+  const interval = setInterval(fetchData, 30000);
+  return () => clearInterval(interval);
+}, []);
 
   const autosOcupados = cupos.total_autos - cupos.disponibles_autos;
   const motosOcupadas = cupos.total_motos - cupos.disponibles_motos;
