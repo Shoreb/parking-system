@@ -22,24 +22,41 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center px-6">
+    <div className="min-h-screen relative flex items-center justify-center px-6 overflow-hidden">
 
-      <div className="w-full max-w-md">
+      {/* 🖼️ IMAGEN DE FONDO */}
+      <div
+        className="absolute inset-0 bg-cover bg-center scale-105"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1506521781263-d8422e82f27a?q=80&w=2070&auto=format&fit=crop')",
+        }}
+      />
 
-        {/* LOGO / HEADER */}
+      {/* 🌑 OVERLAY PRO */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/70 to-black/90 backdrop-blur-[2px]" />
+
+      {/* ✨ GLOW DECORATION */}
+      <div className="absolute top-20 left-20 w-72 h-72 bg-white/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-20 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
+
+      {/* CONTENIDO */}
+      <div className="w-full max-w-md relative z-10 animate-fade-in">
+
+        {/* LOGO */}
         <div className="text-center mb-10">
-          <div className="w-14 h-14 bg-black rounded-xl flex items-center justify-center mx-auto mb-4">
-            <Car className="h-7 w-7 text-white" />
+          <div className="w-16 h-16 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+            <Car className="h-8 w-8 text-white" />
           </div>
 
-          <h1 className="text-2xl font-bold text-black">ParqueApp</h1>
-          <p className="text-gray-500 text-sm mt-1">
+          <h1 className="text-3xl font-bold text-white">ParqueApp</h1>
+          <p className="text-white/70 text-sm mt-1">
             Sistema de Control de Parqueadero
           </p>
         </div>
 
         {/* CARD */}
-        <div className="bg-white border border-gray-200 rounded-2xl p-8">
+        <div className="bg-white/95 backdrop-blur-md border border-white/20 rounded-2xl p-8 shadow-2xl">
 
           <div className="flex items-center gap-2 mb-6">
             <ShieldCheck className="h-5 w-5 text-black" />
@@ -54,8 +71,8 @@ const Login: React.FC = () => {
                 Correo electrónico
               </label>
 
-              <div className="relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+              <div className="relative group">
+                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 group-focus-within:text-black transition-colors" />
 
                 <input
                   type="email"
@@ -74,8 +91,8 @@ const Login: React.FC = () => {
                 Contraseña
               </label>
 
-              <div className="relative">
-                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+              <div className="relative group">
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 group-focus-within:text-black transition-colors" />
 
                 <input
                   type="password"
@@ -90,7 +107,7 @@ const Login: React.FC = () => {
 
             {/* ERROR */}
             {error && (
-              <div className="p-3 border border-red-200 bg-red-50 rounded-xl">
+              <div className="p-3 border border-red-200 bg-red-50 rounded-xl animate-shake">
                 <span className="text-red-600 text-sm">{error}</span>
               </div>
             )}
@@ -99,7 +116,7 @@ const Login: React.FC = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 bg-black text-white font-semibold rounded-xl hover:bg-gray-800 transition-all flex items-center justify-center gap-2 disabled:opacity-70"
+              className="w-full py-3 bg-black text-white font-semibold rounded-xl hover:bg-gray-800 transition-all flex items-center justify-center gap-2 shadow-md hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70"
             >
               {loading && <Loader2 className="h-5 w-5 animate-spin" />}
               {loading ? "Verificando..." : "Ingresar"}
@@ -114,7 +131,7 @@ const Login: React.FC = () => {
 
       </div>
 
-      {/* WhatsApp flotante */}
+      {/* WHATSAPP */}
       <a
         href="https://wa.me/573000000000"
         target="_blank"
@@ -123,9 +140,10 @@ const Login: React.FC = () => {
         title="Soporte WhatsApp"
       >
         <svg viewBox="0 0 24 24" className="w-7 h-7 fill-white">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"/>
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487"/>
         </svg>
       </a>
+
     </div>
   );
 };
