@@ -73,10 +73,8 @@ const LandingPage = () => {
                 <ArrowRight className="h-4 w-4" />
               </button>
               
-                href="#features"
-                className="flex items-center justify-center gap-2 px-7 py-3.5 border border-gray-200 text-black font-semibold rounded-xl hover:bg-gray-50 transition-colors text-sm"
-              >
-                Ver funcionalidades
+               <a href="#features" className="...">
+                  Ver funcionalidades
               </a>
             </div>
           </div>
