@@ -1,73 +1,145 @@
-# Welcome to your Lovable project
+# 🚗 ParqueApp - Sistema de Control de Parqueadero
 
-## Project info
+Aplicación web desarrollada para la gestión inteligente de parqueaderos, permitiendo controlar en tiempo real la entrada y salida de vehículos, calcular cobros automáticamente y administrar usuarios según roles.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+---
 
-## How can I edit this code?
+## Descripción
 
-There are several ways of editing your application.
+**ParqueApp** es un sistema web que optimiza la administración de parqueaderos, permitiendo:
 
-**Use Lovable**
+* Control de cupos en tiempo real
+* Registro eficiente de entradas y salidas
+* Cálculo automático de tarifas
+* Generación de tickets
+* Gestión de usuarios con roles
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## Funcionalidades
 
-Changes made via Lovable will be committed automatically to this repo.
+### Autenticación
 
-**Use your preferred IDE**
+* Inicio de sesión con Supabase Auth
+* Control de acceso por roles:
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+  * Administrador
+  * Operario
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+### Registro de entrada
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+* Ingreso de placa
+* Selección de tipo de vehículo
+* Asignación automática de espacio
+* Validación de cupos disponibles
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Registro de salida
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+* Búsqueda por placa
+* Cálculo automático del tiempo
+* Cálculo del valor a pagar
+* Liberación de espacio
+* Generación de ticket
+
+---
+
+### Sistema de tarifas
+
+* Configuración de tarifas por tipo de vehículo
+* Soporte para distintos tipos de cobro
+
+---
+
+### Control de cupos
+
+* Visualización en tiempo real:
+
+  * Autos disponibles
+  * Motos disponibles
+
+---
+
+### Generación de tickets
+
+Incluye:
+
+* Placa
+* Hora de entrada y salida
+* Tiempo total
+* Valor pagado
+
+---
+
+## Tecnologías utilizadas
+
+* Frontend: React + TypeScript
+* Estilos: CSS / Tailwind (según implementación)
+* Backend: Supabase (BaaS)
+* Autenticación: Supabase Auth
+* Base de datos: PostgreSQL (Supabase)
+* Deploy: Vercel
+
+---
+
+## Instalación local
+
+1. Clonar repositorio:
+
+```bash
+git clone https://github.com/Shoreb/spotzen-guard.git
+cd spotzen-guard
+```
+
+2. Instalar dependencias:
+
+```bash
+npm install
+```
+
+3. Configurar variables de entorno:
+
+Crear archivo `.env`:
+
+```env
+VITE_SUPABASE_URL=TU_URL
+VITE_SUPABASE_ANON_KEY=TU_KEY
+```
+
+---
+
+## Ejecutar en desarrollo
+
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Abrir en:
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```
+http://localhost:5173
+```
 
-**Use GitHub Codespaces**
+---
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Base de datos (Supabase)
 
-## What technologies are used for this project?
+El sistema utiliza las siguientes entidades principales:
 
-This project is built with:
+* usuarios
+* roles
+* tipos_vehiculo
+* espacios
+* tarifas
+* registros
+* tickets
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## ⭐ Estado del proyecto
 
-## How can I deploy this project?
+-Funcional
+-En mejora continua
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+---
 
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
